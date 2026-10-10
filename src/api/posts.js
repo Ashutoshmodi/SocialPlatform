@@ -2,8 +2,11 @@ import http from './http'
 
 export const postsApi = {
     getFeed(pageNumber = 1, pageSize = 10) {
-        // Returns { items, totalCount, pageNumber, pageSize }
         return http.get('/posts/feed', { params: { pageNumber, pageSize } }).then((r) => r.data)
+    },
+
+    getUserPosts(userId, pageNumber = 1, pageSize = 10) {
+        return http.get(`/posts/user/${userId}`, { params: { pageNumber, pageSize } }).then((r) => r.data)
     },
 
     getPost(id) {
@@ -12,5 +15,9 @@ export const postsApi = {
 
     createPost(content) {
         return http.post('/posts', { content }).then((r) => r.data)
+    },
+
+    deletePost(id) {
+        return http.delete(`/posts/${id}`)
     },
 }

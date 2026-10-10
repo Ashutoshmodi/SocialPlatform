@@ -28,9 +28,10 @@ async function submit() {
 </script>
 
 <template>
+    <div class="fixed inset-0 -z-10 bg-[url('/login-bg.jpg')] bg-cover bg-center"></div>
     <div class="mx-auto mt-16 max-w-sm">
         <h1 class="mb-6 text-center text-2xl font-bold">Log in</h1>
-        <form @submit.prevent="submit" class="space-y-4 rounded-lg bg-white p-6 shadow-sm">
+        <form @submit.prevent="submit" class="space-y-4 rounded-lg bg-white/90 p-6 shadow-lg backdrop-blur-sm">
             <p v-if="error" class="rounded-md bg-red-50 p-3 text-sm text-red-700">{{ error }}</p>
             <input v-model="email" type="email" required placeholder="Email" autocomplete="email"
                 class="w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none" />

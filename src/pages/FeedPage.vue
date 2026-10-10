@@ -33,7 +33,7 @@ onMounted(() => load(1))
   </p>
 
   <div v-else class="space-y-4">
-    <PostCard v-for="post in posts.items" :key="post.id" :post="post" />
+    <PostCard v-for="post in posts.items" :key="post.id" :post="post" @deleted="load(posts.pageNumber)" />
   </div>
 
   <div v-if="posts.totalPages > 1" class="mt-6 flex items-center justify-between text-sm">
